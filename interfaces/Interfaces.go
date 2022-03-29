@@ -15,10 +15,12 @@ type IQueue[T any] interface {
 	baseList[T]
 	Enqueue(T)
 	Dequeue() (*T, bool)
+	Peek() (*T, bool)
 }
 
 type IStack[T any] interface {
 	baseList[T]
 	Push(T)
 	Pop() (*T, bool)
+	Peek() (*T, bool)
 }
