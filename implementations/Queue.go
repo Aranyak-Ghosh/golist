@@ -46,3 +46,14 @@ func (q *Queue[T]) Dequeue() (*T, bool) {
 		return &res, true
 	}
 }
+
+func (q *Queue[T]) Peek() (*T, bool) {
+	q.mu.Lock()
+	defer q.mu.Unlock()
+	if len(q.data) == 0 {
+		return nil, false
+	} else {
+		var res = q.data[0]
+		return &res, true
+	}
+}
