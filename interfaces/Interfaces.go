@@ -14,11 +14,11 @@ type IList[T any] interface {
 type IQueue[T any] interface {
 	baseList[T]
 	Enqueue(T)
-	Dequeue() (*T, error)
+	Dequeue() (*T, bool)
 }
 
 type IStack[T any] interface {
 	baseList[T]
 	Push(T)
-	Pop() (*T, error)
-} 
+	Pop() (*T, bool)
+}
