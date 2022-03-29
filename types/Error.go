@@ -1,9 +1,11 @@
 package types
 
+import "fmt"
+
 type InternalError struct {
 	ErrorCode    int    `json:"code"`
 	ErrorMessage string `json:"errorMessage"`
-	ErrorDetails string `json:"errorDetails"`
+	ErrorDetails error  `json:"errorDetails"`
 }
 
 func (e *InternalError) Error() string {
@@ -14,7 +16,7 @@ func UnmarshallError(err error) error {
 	return &InternalError{
 		ErrorCode:    1000,
 		ErrorMessage: "Unable to parse object into list",
-		ErrorDetails: err.Error(),
+		ErrorDetails: fmt.Errorf("unmarshall error: %w", err),
 	}
 }
 
