@@ -1,7 +1,7 @@
 package golist
 
 type baseList[T any] interface {
-	Lenght() int
+	Length() int
 	Append(T)
 }
 

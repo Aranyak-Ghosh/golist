@@ -43,7 +43,7 @@ func (s *Stack[T]) Pop() (*T, bool) {
 	}
 }
 
-func (s *Stack[T]) Lenght() int {
+func (s *Stack[T]) Length() int {
 	return len(s.data)
 }
 

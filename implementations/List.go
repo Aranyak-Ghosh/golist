@@ -9,7 +9,6 @@ import (
 // TypeDef List to array
 type List[T any] []T
 
-
 func (l *List[T]) UnmarshalJSON(data []byte) error {
 	var out []T
 
@@ -29,9 +28,9 @@ func (l *List[T]) Append(entry T) *List[T] {
 }
 
 func (l *List[T]) RemoveAt(index int) error {
-	lenght := len(*l)
+	Length := len(*l)
 
-	if index >= lenght || index < 0 {
+	if index >= Length || index < 0 {
 		return types.IndexOutOfBoundError()
 	} else {
 		left := (*l)[:index]
@@ -41,7 +40,7 @@ func (l *List[T]) RemoveAt(index int) error {
 	}
 }
 
-func (l *List[T]) Lenght() int {
+func (l *List[T]) Length() int {
 	return len(*l)
 }
 
@@ -66,7 +65,7 @@ func (l *List[T]) Map(ex func(T) any) []any {
 func (l *List[T]) Filter(ex func(el T) bool) *List[T] {
 	var res *List[T] = new(List[T])
 
-	*res = make([]T, l.Lenght())
+	*res = make([]T, l.Length())
 
 	var counter = 0
 	for _, v := range *l {

@@ -25,7 +25,7 @@ func (q *Queue[T]) UnmarshalJSON(data []byte) error {
 	}
 }
 
-func (q *Queue[T]) Lenght() int {
+func (q *Queue[T]) Length() int {
 	return len(q.data)
 }
 
