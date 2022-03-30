@@ -25,6 +25,10 @@ func (q *Queue[T]) UnmarshalJSON(data []byte) error {
 	}
 }
 
+func (q *Queue[T]) MarshalJSON() ([]byte, error) {
+	return json.Marshal(q.data)
+}
+
 func (q *Queue[T]) Length() int {
 	return len(q.data)
 }

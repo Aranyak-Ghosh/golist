@@ -22,6 +22,10 @@ func (l *List[T]) UnmarshalJSON(data []byte) error {
 	}
 }
 
+func (l *List[T]) MarshalJSON() ([]byte, error) {
+	return json.Marshal(l)
+}
+
 func (l *List[T]) Append(entry T) *List[T] {
 	*l = append(*l, entry)
 	return l

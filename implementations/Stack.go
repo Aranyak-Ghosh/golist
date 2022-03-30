@@ -25,6 +25,10 @@ func (s *Stack[T]) UnmarshalJSON(data []byte) error {
 	}
 }
 
+func (s *Stack[T]) MarshalJSON() ([]byte, error) {
+	return json.Marshal(s.data)
+}
+
 func (s *Stack[T]) Push(entry T) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
