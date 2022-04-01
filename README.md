@@ -13,7 +13,7 @@ A queue provides the following methods in its interface:
 - Dequeue: removes the first element that was enqueued in a FIFO structure (type-safe)
 - Peek: returns the element at the front of the queue, returning a pointer to the element and a boolean value to indicate if the queue is empty.
 - Length: returns the length of the queue as an integer.
-- UnmarshallJSON: takes a byte array to unmarshall into the queue's data field, returns data type of error.
+- UnmarshallJSON: overrides default unmarshal behaviour to allow unmarshalling array to queue
 
 
 A list provides the following methods in its interface:
@@ -21,7 +21,7 @@ A list provides the following methods in its interface:
 - RemoveAt: removes an element at a specified index, takes integer as an argument, returns data type of error.
 - Map: creates a map out of the list. 
 - Filter: filters from a list using a bool function that satisfies a particular condition.
-- UnmarshallJSON: takes a byte array to unmarshall into the list's data field, returns data type of error.
+- UnmarshallJSON: overrides default unmarshal behaviour to allow unmarshalling array to list
 
 
 A stack provides the following methods in its interface:
@@ -29,7 +29,7 @@ A stack provides the following methods in its interface:
 - Pop: removes an element from top of the stack in LIFO structure (type-safe).
 - Peek: returns the element at the top of the stack in LIFO structure, returning a pointer to the element and a boolean value to indicate if stack is empty.
 - Length: returns the length of the stack as an integer.
-- UnmarshallJSON: takes a byte array to unmarshall into the stack's data field, returns data type of error.
+- UnmarshallJSON: overrides default unmarshal behaviour to allow unmarshalling array to stack
 
 
 An error type provides certain error messages for indexes going out of bound, parsing and for internal errors. 
