@@ -14,6 +14,7 @@ A queue provides the following methods in its interface:
 - Peek: returns the element at the front of the queue, returning a pointer to the element and a boolean value to indicate if the queue is empty.
 - Length: returns the length of the queue as an integer.
 - UnmarshallJSON: overrides default unmarshal behaviour to allow unmarshalling array to queue
+- MarshalJSON: overrides default marshall behaviour to marshall into json array
 
 
 A list provides the following methods in its interface:
@@ -22,6 +23,7 @@ A list provides the following methods in its interface:
 - Map: creates a map out of the list. 
 - Filter: filters from a list using a bool function that satisfies a particular condition.
 - UnmarshallJSON: overrides default unmarshal behaviour to allow unmarshalling array to list
+- MarshalJSON: overrides default marshall behaviour to marshall into json array
 
 
 A stack provides the following methods in its interface:
@@ -30,6 +32,7 @@ A stack provides the following methods in its interface:
 - Peek: returns the element at the top of the stack in LIFO structure, returning a pointer to the element and a boolean value to indicate if stack is empty.
 - Length: returns the length of the stack as an integer.
 - UnmarshallJSON: overrides default unmarshal behaviour to allow unmarshalling array to stack
+- MarshalJSON: overrides default marshall behaviour to marshall into json array
 
 
 An error type provides certain error messages for indexes going out of bound, parsing and for internal errors. 
