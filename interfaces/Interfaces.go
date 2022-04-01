@@ -1,4 +1,4 @@
-package golist
+package interfaces
 
 type baseList[T any] interface {
 	Length() int
