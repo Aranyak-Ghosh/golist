@@ -1,4 +1,4 @@
-package implementations
+package golist
 
 import (
 	"encoding/json"
