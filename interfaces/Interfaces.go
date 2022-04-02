@@ -2,11 +2,11 @@ package interfaces
 
 type baseList[T any] interface {
 	Length() int
-	Append(T)
 }
 
 type IList[T any] interface {
 	baseList[T]
+	Append(T) IList[T]
 	Map(func(T) any) []any
 	Filter(func(T) bool) IList[T]
 }
