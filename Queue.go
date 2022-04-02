@@ -1,9 +1,10 @@
-package implementation
+package golist
 
 import (
 	"encoding/json"
 	"sync"
 
+	"github.com/Aranyak-Ghosh/golist/interfaces"
 	"github.com/Aranyak-Ghosh/golist/types"
 )
 
@@ -11,6 +12,8 @@ type Queue[T any] struct {
 	data []T
 	mu   sync.Mutex
 }
+
+var _ interfaces.IQueue[int] = (*Queue[int])(nil)
 
 func (q *Queue[T]) UnmarshalJSON(data []byte) error {
 	var out []T

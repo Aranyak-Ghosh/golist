@@ -1,9 +1,10 @@
-package implementation
+package golist
 
 import (
 	"encoding/json"
 	"sync"
 
+	"github.com/Aranyak-Ghosh/golist/interfaces"
 	"github.com/Aranyak-Ghosh/golist/types"
 )
 
@@ -11,6 +12,8 @@ type Stack[T any] struct {
 	data []T
 	mu   sync.Mutex
 }
+
+var _ interfaces.IStack[int] = (*Stack[int])(nil)
 
 func (s *Stack[T]) UnmarshalJSON(data []byte) error {
 	var out []T

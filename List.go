@@ -1,13 +1,16 @@
-package implementation
+package golist
 
 import (
 	"encoding/json"
 
+	"github.com/Aranyak-Ghosh/golist/interfaces"
 	"github.com/Aranyak-Ghosh/golist/types"
 )
 
 // TypeDef List to array
 type List[T any] []T
+
+var _ interfaces.IList[int] = (*List[int])(nil)
 
 func (l *List[T]) UnmarshalJSON(data []byte) error {
 	var out []T
@@ -26,7 +29,7 @@ func (l *List[T]) MarshalJSON() ([]byte, error) {
 	return json.Marshal(l)
 }
 
-func (l *List[T]) Append(entry T) *List[T] {
+func (l *List[T]) Append(entry T) interfaces.IList[T] {
 	*l = append(*l, entry)
 	return l
 }
@@ -66,7 +69,7 @@ func (l *List[T]) Map(ex func(T) any) []any {
 	return res
 }
 
-func (l *List[T]) Filter(ex func(el T) bool) *List[T] {
+func (l *List[T]) Filter(ex func(el T) bool) interfaces.IList[T] {
 	var res *List[T] = new(List[T])
 
 	*res = make([]T, l.Length())
