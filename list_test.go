@@ -49,3 +49,22 @@ func TestListRemoveAt(t *testing.T) {
 	}
 
 }
+
+func TestListFilter(t *testing.T) {
+	var q *List[int] = new(List[int])
+
+	*q = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+	var expected = []int{2, 4, 6, 8, 10}
+
+	q = (q.Filter(func(x int) bool {
+		return x%2 == 0
+	})).(*List[int])
+
+	for i := range expected {
+		if (*q)[i] != expected[i] {
+			t.Errorf("Expected %d, got %d", expected[i], (*q)[i])
+			break
+		}
+	}
+}
