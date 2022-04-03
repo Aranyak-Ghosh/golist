@@ -51,9 +51,10 @@ func (l *List[T]) Length() int {
 	return len(*l)
 }
 
-func (l *List[T]) Map(ex func(T) any) []any {
+func (l *List[T]) Map(ex func(T) any) interfaces.IList[any] {
 
-	var res = make([]any, len(*l))
+	var res *List[any] = new(List[any])
+	*res = make([]any, l.Length())
 
 	for i, v := range *l {
 		var tempRes = make(chan any)
@@ -63,7 +64,7 @@ func (l *List[T]) Map(ex func(T) any) []any {
 			tempRes <- dat
 
 		}()
-		res[i] = <-tempRes
+		(*res)[i] = <-tempRes
 	}
 
 	return res

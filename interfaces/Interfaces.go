@@ -7,7 +7,7 @@ type baseList[T any] interface {
 type IList[T any] interface {
 	baseList[T]
 	Append(T) IList[T]
-	Map(func(T) any) []any
+	Map(func(T) any) IList[any]
 	Filter(func(T) bool) IList[T]
 }
 
